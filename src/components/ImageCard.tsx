@@ -4,12 +4,14 @@ interface ImageCardProps {
   imageUrl: string;
   title: string;
   handleClick: (image: string) => void;
+  ref?: any;
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
   imageUrl,
   title,
   handleClick,
+  ref,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -19,7 +21,10 @@ const ImageCard: React.FC<ImageCardProps> = ({
   };
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg border first:row-span-2 first:col-span-2  px-2 py-2">
+    <div
+      className="max-w-sm rounded overflow-hidden shadow-lg border  px-2 py-2"
+      ref={ref}
+    >
       <input
         type="checkbox"
         checked={isChecked}

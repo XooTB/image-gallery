@@ -12,7 +12,7 @@ function App() {
         </h1>
         <hr />
         <div>
-          <ImageGallery images={images} />
+          <ImageGallery imagesData={images} />
         </div>
       </main>
     </div>

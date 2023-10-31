@@ -11,17 +11,17 @@ import image10 from "../assets/images/image-10.jpeg";
 import image11 from "../assets/images/image-11.jpeg";
 
 const images = [
-  { title: "Image 1", src: image1 },
-  { title: "Image 2", src: image2 },
-  { title: "Image 3", src: image3 },
-  { title: "Image 4", src: image4 },
-  { title: "Image 5", src: image5 },
-  { title: "Image 6", src: image6 },
-  { title: "Image 7", src: image7 },
-  { title: "Image 8", src: image8 },
-  { title: "Image 9", src: image9 },
-  { title: "Image 10", src: image10 },
-  { title: "Image 11", src: image11 },
+  { id: 1, title: "Image 1", src: image1 },
+  { id: 2, title: "Image 2", src: image2 },
+  { id: 3, title: "Image 3", src: image3 },
+  { id: 4, title: "Image 4", src: image4 },
+  { id: 5, title: "Image 5", src: image5 },
+  { id: 6, title: "Image 6", src: image6 },
+  { id: 7, title: "Image 7", src: image7 },
+  { id: 8, title: "Image 8", src: image8 },
+  { id: 9, title: "Image 9", src: image9 },
+  { id: 10, title: "Image 10", src: image10 },
+  { id: 11, title: "Image 11", src: image11 },
 ];
 
 export default images;
