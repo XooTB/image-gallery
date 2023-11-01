@@ -97,7 +97,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
           onDragStart={handleDragStart}
         >
           <SortableContext items={images}>
-            <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-[900px] list-none border px-8 py-9 rounded-lg ">
+            <ul className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-[900px] list-none border px-8 py-9 rounded-lg mb-5">
               {images.map(({ id, title, src }) => (
                 <ImageCard
                   key={id}
@@ -107,6 +107,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
                   handleClick={handleImageClick}
                 />
               ))}
+              {!images.length && <h1>Sorry no Images Available.</h1>}
             </ul>
             {/* Overlay Placeholder for the Dragable component.*/}
             <DragOverlay>
