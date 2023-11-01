@@ -1,6 +1,12 @@
 import images from "./constants/images";
 import NavBar from "./components/NavBar";
 import ImageGallery from "./components/ImageGallery";
+import Footer from "./components/Footer";
+
+/**
+ * The main component of the Image Gallery app.
+ * @returns The App component.
+ */
 
 function App() {
   return (
@@ -15,6 +21,7 @@ function App() {
           <ImageGallery imagesData={images} />
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * A navigation bar component for the image gallery app.
+ * @returns A React functional component that renders a navigation bar.
+ */
 const NavBar = () => {
   return (
     <nav className="bg-gray-800">

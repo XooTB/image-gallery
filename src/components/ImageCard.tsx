@@ -10,6 +10,15 @@ interface ImageCardProps {
   ref?: any;
 }
 
+/**
+ * ImageCard component displays an image with a checkbox and a title.
+ * It also allows the user to drag and drop the image to reorder it.
+ * @param imageUrl - The URL of the image to display.
+ * @param title - The title of the image.
+ * @param id - The unique identifier of the image.
+ * @param handleClick - The function to call when the checkbox is clicked.
+ */
+
 const ImageCard: React.FC<ImageCardProps> = ({
   imageUrl,
   title,
@@ -26,6 +35,9 @@ const ImageCard: React.FC<ImageCardProps> = ({
     index: id,
   };
 
+  /**
+   * Toggles the state of the checkbox and calls the handleClick function.
+   */
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
     handleClick(id);

@@ -29,7 +29,7 @@ interface ImageGalleryProps {
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
-  // Component States
+  // Component States.
   const [selectedImages, setSelectedImages] = useState<number[]>([]);
   const [images, setImages] = useState(imagesAll);
   const [activeId, setActiveId] = useState<any>(null);
@@ -48,6 +48,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
 
   // Click and Drag Handler functions
   //
+  // Handles the Image Selection logic.
   const handleImageClick = (id: number) => {
     if (selectedImages.includes(id)) {
       setSelectedImages(selectedImages.filter((el) => el !== id));
@@ -56,31 +57,32 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
     }
   };
 
+  // Handles the DragStart Event Logic
   function handleDragStart(event: DragStartEvent) {
     const { active } = event;
 
     setActiveId(active.id);
   }
 
+  // Handles the DragEnd Event logic.
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
 
     if (active.id !== over?.id) {
       setImages((images) => {
-        //@ts-ignore
         const oldIndex = images.findIndex((el) => el.id === active.id);
-        //@ts-ignore
-        const newIndex = images.findIndex((el) => el.id === over.id);
+        const newIndex = images.findIndex((el) => el.id === over?.id);
 
         return arrayMove(images, oldIndex, newIndex);
       });
     }
   }
 
-  const handleDelete = () => {
+  // Handles the Deletion Logic for the Images.
+  function handleDelete() {
     setImages(images.filter((img) => !selectedImages.includes(img.id)));
     setSelectedImages([]);
-  };
+  }
 
   // Return Image Gallery JSX
   //
@@ -92,6 +94,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
           <Button onClick={handleDelete}>Delete</Button>
         ) : null}
       </div>
+
       <div className="flex flex-col items-center justify-center">
         <DndContext
           sensors={sensors}
@@ -111,6 +114,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
                 />
               ))}
             </ul>
+            {/* Overlay Placeholder for the Dragable component.*/}
             <DragOverlay>
               {activeId ? <Placeholder id={activeId} /> : null}
             </DragOverlay>
