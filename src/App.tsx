@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="">
       <NavBar />
-      <main className="px-10">
+      <main className="px-10 min-h-screen">
         <h1 className="py-5 text-center font-semibold text-3xl">
           Welcome to the Image Gallery
         </h1>
