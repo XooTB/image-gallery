@@ -12,7 +12,7 @@ type Props = {
  * @returns {JSX.Element} - The rendered image element.
  */
 
-const Placeholder = ({ id }: Props) => {
+const Placeholder: React.FC<Props> = ({ id }: Props) => {
   const item = images.filter((el) => el.id === id)[0];
   return <img src={item.src} className="w-48 h-48" />;
 };

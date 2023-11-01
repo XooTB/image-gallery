@@ -1,4 +1,3 @@
-import images from "./constants/images";
 import NavBar from "./components/NavBar";
 import ImageGallery from "./components/ImageGallery";
 import Footer from "./components/Footer";
@@ -18,7 +17,7 @@ function App() {
         </h1>
         <hr />
         <div>
-          <ImageGallery imagesData={images} />
+          <ImageGallery />
         </div>
       </main>
       <Footer />

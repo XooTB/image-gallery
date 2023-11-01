@@ -20,13 +20,7 @@ import {
   SortableContext,
   sortableKeyboardCoordinates,
 } from "@dnd-kit/sortable";
-interface ImageGalleryProps {
-  imagesData: {
-    title: string;
-    src: string;
-    id: number;
-  }[];
-}
+interface ImageGalleryProps {}
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({}) => {
   // Component States.

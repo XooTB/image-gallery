@@ -4,7 +4,7 @@ import React from "react";
  * A navigation bar component for the image gallery app.
  * @returns A React functional component that renders a navigation bar.
  */
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <nav className="bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
