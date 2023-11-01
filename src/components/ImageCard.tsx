@@ -1,29 +1,43 @@
 import React, { useState } from "react";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 interface ImageCardProps {
   imageUrl: string;
   title: string;
-  handleClick: (image: string) => void;
+  id: number;
+  handleClick: (id: number) => void;
   ref?: any;
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({
   imageUrl,
   title,
+  id,
   handleClick,
-  ref,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    index: id,
+  };
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
-    handleClick(imageUrl);
+    handleClick(id);
   };
 
   return (
-    <div
-      className="max-w-sm rounded overflow-hidden shadow-lg border  px-2 py-2"
-      ref={ref}
+    <li
+      className="rounded overflow-hidden shadow-md border px-2 py-2 first:col-span-2 first:row-span-2 border-gray-300"
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
     >
       <input
         type="checkbox"
@@ -31,13 +45,8 @@ const ImageCard: React.FC<ImageCardProps> = ({
         onChange={handleCheckboxChange}
         className="absolute"
       />
-      <img
-        className="w-full hover:cursor-pointer"
-        src={imageUrl}
-        alt={title}
-        onClick={handleCheckboxChange}
-      />
-    </div>
+      <img className="w-full hover:cursor-pointer" src={imageUrl} alt={title} />
+    </li>
   );
 };
 
